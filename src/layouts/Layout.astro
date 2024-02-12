@@ -4,6 +4,10 @@ import Header from '../components/Header.astro';
 import '@fontsource-variable/onest';
 import Hero from '../components/Hero.astro'
 import Hamburguesas from '../components/Hamburguesas.astro';
+import ParaPicar from '../components/ParaPicar.astro';
+import PagoEnvio from '../components/PagoEnvio.astro'
+import Pedidos from '../components/Pedidos.astro'
+import Footer from '../components/Footer.astro';
 
 interface Props {
 	title: string;
@@ -18,7 +22,7 @@ const { title } = Astro.props;
 		<meta charset="UTF-8" />
 		<meta name="description" content="Astro description" />
 		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<link rel="icon" type="image/svg+xml" href="/burger.svg" />
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
 	</head>
@@ -27,13 +31,26 @@ const { title } = Astro.props;
 		<Header />
 		<Hero />
 		<Hamburguesas />
+		<ParaPicar />
+		<PagoEnvio />
+		<Pedidos />
+		<Footer />
 		<slot />
 	</body>
 </html>
 
 <style is:inline>
+	html{
+		scroll-behavior: smooth;
+	}
+
 	body {
 		font-family: 'Onest Variable', sans-serif;
 	}
 
+	@media (prefers-reduced-motion: reduce) {
+		html{
+			scroll-behavior: auto;
+		}
+	}
 </style>
